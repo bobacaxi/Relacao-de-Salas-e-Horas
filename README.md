@@ -73,6 +73,6 @@ Além disso, se os turnos de sua universidade forem escritos de forma diferente 
 
 Por fim, os loops entre PDFs só funcionarão se os arquivos estiverem na mesma pasta especificada em "caminho" e numerados começando do número 01, como em "01.pdf". Os números nos nomes dos arquivos devem estar sempre em 2 (dois) dígitos para serem identificados (e.g. "11.pdf e 06.pdf"), e as extensões devem sempre ser "x.pdf", e não "x.PDF". Caso contrário, os arquivos não serão identificados.
 
-# Exemplo
+# Exemplo - PUC-SP
 
-Há, em anexo, PDFs disponíveis publicamente no site da PUC-SP, especificamente o quadro de horários dos cursos do Campus Monte Alegre, já numerados corretamente para listagem da relação de salas-horas. Há também um arquivo de texto que esclarece a que curso se refere o número de cada PDF.
+Há, em anexo, PDFs disponíveis publicamente no site da PUC-SP, especificamente o quadro de horários dos cursos do Campus Monte Alegre, já numerados corretamente para listagem da relação de salas-horas. Há também um arquivo de texto que esclarece a que curso se refere o número de cada PDF, e um DOCX que já faz a listagem completa para todos os cursos do Campus Monte Alegre na semana toda.
