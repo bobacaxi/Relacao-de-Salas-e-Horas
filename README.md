@@ -37,9 +37,9 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 
 2.2 - especificar o caminho da pasta dos arquivos PDF com as tabelas, nomeados numericamente de 01-X (e.g. "07.pdf");
 
-2.3 - especificar o número de PDFs;
+2.3 - especificar o número total de PDFs;
 
-2.3 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
+2.4 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
 
 3 - Rodar o código.
@@ -56,7 +56,7 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 
 2.1 - especificar o caminho da pasta dos arquivos PDF com as tabelas, nomeados numericamente de 01-X (e.g. "07.pdf");
 
-2.2 - especificar o número de PDFs;
+2.2 - especificar o número total de PDFs;
 
 2.3 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
