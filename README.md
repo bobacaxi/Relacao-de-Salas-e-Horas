@@ -63,7 +63,7 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 
 3 - Rodar o código.
 
-Em seguida, a IDE vai printar a relação de salas e horas para a semana, com o título (curso e turno) de cada PDF acima, começando da segunda e terminando na sexta. Se você quer printar os sábados também, adicionar sábado ao dicionário e alterar a range da variável "k" para 6 no loop.
+Em seguida, a IDE vai printar a relação de salas e horas para a semana, com o título (curso e turno) de cada PDF acima, começando da segunda e terminando na sexta. Se você quer printar os sábados também, adicionar sábado ao dicionário e alterar a range da variável "k" para 7 no loop.
 
 # Considerações
 
