@@ -1,4 +1,4 @@
-# Produção de Relações de Salas-Horas a partir de PDFs
+# Relações de Salas-Horas a partir de PDFs
 Esse repositório é uma tentativa de automatizar o trabalho de produzir a relação de dias, salas e horas em que há aulas, posto que há um PDF da universidade com uma tabela de dias, aulas, salas e horários disponível.
 
 O principal instrumento utilizado (além do python) é o PIP pdfplumber, especificamente seu método de extração de tabelas de PDFs. Sua documentação está disponível em https://pypi.org/project/pdfplumber/, caso queira modificar os códigos para uso específico. Também é utilizado o módulo RE nativo do python para separação de padrões de texto, e o módulo datetime, também nativo, para comparação direta entre horários.
@@ -70,3 +70,5 @@ Em seguida, a IDE vai printar a relação de salas e horas para a semana, com o 
 Como eu fiz o código inicialmente para uso próprio, o título é recortado do texto inicial do arquivo PDF a partir de uma indexação específica ( i.e. titulo_rasc = paginas[0].extract_text()[190:254] ), ou seja, se o título for recortado errado para você, mude o número inicial do recorte.
 
 O final do título é recortado pela identificação do turno, visto que normalmente consta nos textos iniciais dos documentos algo na forma de "Ciências Sociais GRAD Turno: MANHÃ"; se não for o seu caso, sugiro modificar a função "extrair_título", na seção Título da função principal. Além disso, se os turnos de sua universidade forem escritos de forma diferente e não forem reconhecidos, o título não será printado. Se isso ocorrer, adicione os turnos de seus PDFs no dicionário "turnos", e deve funcionar normalmente.
+
+Os loops entre PDFs só funcionarão se os arquivos estiverem na mesma pasta especificada em "caminho" e numerados começando do número 01, como em "01.pdf". Os números nos nomes dos arquivos devem estar sempre em 2 (dois) dígitos para serem identificados (e.g. "11.pdf e 06.pdf"), e as extensões devem sempre ser "x.pdf", e não "x.PDF". Caso contrário, os arquivos não serão identificados.
