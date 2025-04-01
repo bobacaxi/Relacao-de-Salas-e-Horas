@@ -3,40 +3,21 @@ import pdfplumber
 from datetime import time
 
 #region Configurações
-excluir_nucleos = False
 
 dia = "segunda"
 
-caminho = "/home/xram/Desktop/COMORG/passagem de sala/"
+caminho = "/path/to/file.pdf"
+
+exclusao = 'ESTÁGIO'
+
+excluir = False
+
 #endregion
 
 #region Dicionários
 dias = {"segunda":1, "terça":2, "quarta":3, "quinta":4, "sexta":5}
 
 dias_inv = {v: k for k, v in dias.items()}
-
-cursos = [
-    'Administração',
-    'Arte: História, Crítica e Curadoria'
-    'Ciência da Computação',
-    'Ciência de Dados e Inteligência Artificial',
-    'Ciências Contábeis',
-    'Ciências Sociais',
-    'Comunicação das Artes do Corpo',
-    'Comunicação e Multimeios',
-    'Direito',
-    'Filosofia',
-    'Fisioterapia',
-    'Fonoaudiologia',
-    'História',
-    'Jornalismo',
-    'Letras',
-    'Pedagogia',
-    'Psicologia',
-    'Publicidade e Propaganda',
-    'Relações Internacionais',
-    'Serviço Social'
-]
 
 turnos = ['MANHÃ', 'MAT', 'NOITE', 'NOT', 'VESP', 'VESP/MAT', 'VESP/NOT', 'MAT/VESP', 'NOT/VESP']
 
@@ -120,8 +101,8 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
                 if not item:
                     pass
                 else:
-                    # para possíveis exclusões, mexer aqui
-                    if 'ÚCLEO' in item and excluir_nucleos:
+                    # para mais exclusões, editar aqui
+                    if exclusao in item and excluir:
                         pass
                     else:
                         time_room = item.split('/')[-1].strip()
@@ -220,4 +201,4 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
 
         #endregion
 
-relacao_salas_horas(caminho+'01.pdf', dia)
+relacao_salas_horas(caminho, dia)
