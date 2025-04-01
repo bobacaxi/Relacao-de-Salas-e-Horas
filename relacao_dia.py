@@ -3,11 +3,17 @@ import pdfplumber
 from datetime import time
 
 #region Configurações
-excluir_nucleos = False
-
 dia = "segunda"
 
-caminho = "/home/xram/Desktop/COMORG/passagem de sala/"
+caminho = "/path/to/folder/"
+
+# 1-100 PDFs
+num_pdfs = 30
+
+# exclusões da relação
+exclusao = 'ESTÁGIO'
+
+excluir = False
 #endregion
 
 #region Dicionários
@@ -97,8 +103,8 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
                 if not item:
                     pass
                 else:
-                    # para possíveis exclusões, mexer aqui
-                    if 'ÚCLEO' in item and excluir_nucleos:
+                    # para mais exclusões, mexer aqui
+                    if exclusao in item and excluir:
                         pass
                     else:
                         time_room = item.split('/')[-1].strip()
@@ -198,18 +204,24 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         #endregion
 
 #region Loop para Vários PDFs
-#loop para os pdfs de 01-09
-for i in range(1, 10):
-   relacao_salas_horas(caminho+f'0{i}.pdf', dia)
 
-#loop para os pdfs de 10-30
-for i in range(10, 31):
+#formatar o número dos PDFs
+def formatar_num(num):
+    if num < 10:
+        return f'0{num}'
+    elif 10 <= num < 100:
+        return f'{num}'
+    else:
+        print("Número de PDFs < 100 somente!")
+
+#loop para os pdfs
+for i in range(1, num_pdfs + 1):
     #excluir as aulas de Núcleos de prática, estágios, para a Psicologia (pdfs 22-24)
     if i == 22:
-        excluir_nucleos = True
+        excluir = True
     elif i == 25:
-        excluir_nucleos = False
+        excluir = False
 
-    relacao_salas_horas(caminho + f'{i}.pdf', dia)
+    relacao_salas_horas(caminho + f'{formatar_num(i)}.pdf', dia)
 
 #endregion
