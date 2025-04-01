@@ -201,7 +201,7 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         #endregion
 
 # region Loop para Vários PDFs e Dias
-for k in range(1, 5):
+for k in range(1, 6):
     dia = dias_inv[k]
     print(dia)
 
