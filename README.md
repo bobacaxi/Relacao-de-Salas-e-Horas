@@ -71,4 +71,4 @@ Como eu fiz o código inicialmente para uso próprio, o título é recortado do 
 
 Além disso, se os turnos de sua universidade forem escritos de forma diferente e não forem reconhecidos, o título não será printado. Se isso ocorrer, adicione os turnos como constam em seus PDFs no dicionário "turnos", e deve funcionar normalmente.
 
-Os loops entre PDFs só funcionarão se os arquivos estiverem na mesma pasta especificada em "caminho" e numerados começando do número 01, como em "01.pdf". Os números nos nomes dos arquivos devem estar sempre em 2 (dois) dígitos para serem identificados (e.g. "11.pdf e 06.pdf"), e as extensões devem sempre ser "x.pdf", e não "x.PDF". Caso contrário, os arquivos não serão identificados.
+Por fim, os loops entre PDFs só funcionarão se os arquivos estiverem na mesma pasta especificada em "caminho" e numerados começando do número 01, como em "01.pdf". Os números nos nomes dos arquivos devem estar sempre em 2 (dois) dígitos para serem identificados (e.g. "11.pdf e 06.pdf"), e as extensões devem sempre ser "x.pdf", e não "x.PDF". Caso contrário, os arquivos não serão identificados.
