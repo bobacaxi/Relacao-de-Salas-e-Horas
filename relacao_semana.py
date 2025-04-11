@@ -36,7 +36,7 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         paginas = pdf.pages
 
         # extrair curso e turno com outros resquícios do PDF
-        titulo_rasc = paginas[0].extract_text()[190:254]
+        titulo_rasc = paginas[0].extract_text()[160:254]
 
         # verificar quebras de linha no texto
         def verificar_quebras(exemplo):
@@ -49,14 +49,14 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
                     if conta == 1:
                         ind = item.index('\n')
                         list.append(item[:ind])
-                        list.append(item[(ind+1):])
+                        list.append(item[(ind + 1):])
                     elif conta == 2:
                         ind = item.index('\n')
                         list.append(item[:ind])
-                        item2 = item[(ind+1):]
+                        item2 = item[(ind + 1):]
                         ind2 = item2.index('\n')
                         list.append(item2[:ind2])
-                        list.append(item2[(ind2+1):])
+                        list.append(item2[(ind2 + 1):])
                 else:
                     list.append(item)
             for i in range(len(list)):
@@ -69,10 +69,13 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         def extrair_titulo(titulo_teste):
             splitted = titulo_teste.split(' ')
             text = ''
+            minimo = 0
             for i in range(len(splitted)):
+                if splitted[i] == 'Curso:':
+                    minimo = i
                 if splitted[i] in turnos:
                     maximo = i
-                    for j in range(maximo + 1):
+                    for j in range(minimo +2, maximo + 1):
                         text += splitted[j] + ' '
             titulo_teste = text
             return titulo_teste
