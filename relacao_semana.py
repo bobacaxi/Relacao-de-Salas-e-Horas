@@ -9,7 +9,11 @@ caminho = "/path/to/folder/"
 num_pdfs = 30
 
 # exclusões da relação
-exclusao = 'ESTÁGIO'
+exclusoes = [
+    'NÚCLEO',
+    'LANATO',
+    'LEXP'
+]
 
 excluir = False
 #endregion
@@ -101,8 +105,11 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
                 if not item:
                     pass
                 else:
-                    # para possíveis exclusões, mexer aqui
-                    if exclusao in item and excluir:
+                    # remover asteriscos
+                    item = item.replace('*', '')
+
+                    # para mais exclusões, editar aqui
+                    if any([elem in item for elem in exclusoes]) and excluir:
                         pass
                     else:
                         time_room = item.split('/')[-1].strip()
