@@ -8,14 +8,17 @@ dia = "segunda"
 
 caminho = "/path/to/file.pdf"
 
+# 1-100 PDFs
+num_pdfs = 30
+
+# exclusões da relação
 exclusoes = [
     'NÚCLEO',
     'LANATO',
     'LEXP'
 ]
 
-excluir = False
-
+excluir = True
 #endregion
 
 #region Dicionários
@@ -36,7 +39,7 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         paginas = pdf.pages
 
         # extrair curso e turno com outros resquícios do PDF
-        titulo_rasc = paginas[0].extract_text()[190:254]
+        titulo_rasc = paginas[0].extract_text()[160:254]
 
         # verificar quebras de linha no texto
         def verificar_quebras(exemplo):
@@ -108,10 +111,10 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
                 if not item:
                     pass
                 else:
-                    #remover asteriscos
+                    # remover asteriscos
                     item = item.replace('*', '')
 
-                    # exclusões
+                    # para mais exclusões, editar aqui
                     if any([elem in item for elem in exclusoes]) and excluir:
                         pass
                     else:
@@ -211,4 +214,25 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
 
         #endregion
 
-relacao_salas_horas(caminho, dia)
+#region Loop para Vários PDFs
+
+#formatar o número dos PDFs
+def formatar_num(num):
+    if num < 10:
+        return f'0{num}'
+    elif 10 <= num < 100:
+        return f'{num}'
+    else:
+        print("Número de PDFs < 100 somente!")
+
+#loop para os pdfs
+for i in range(1, num_pdfs + 1):
+    #excluir as aulas de Núcleos de prática, estágios, para a Psicologia (pdfs 22-24)
+    if i == 22:
+        excluir = True
+    elif i == 25:
+        excluir = False
+
+    relacao_salas_horas(caminho + f'{formatar_num(i)}.pdf', dia)
+
+#endregion
