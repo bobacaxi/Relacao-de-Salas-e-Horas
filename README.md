@@ -19,7 +19,7 @@ Se você tem exatamente 1 (um) PDF com tabelas que especificam os dias, salas e 
 
 2.2 - especificar o caminho do arquivo PDF com as tabelas;
 
-2.3 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
+2.3 - especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 
 3 - Rodar o código.
 
@@ -39,7 +39,7 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 
 2.3 - especificar o número total de PDFs;
 
-2.4 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
+2.4 - especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
 
 3 - Rodar o código.
@@ -58,7 +58,7 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 
 2.2 - especificar o número total de PDFs;
 
-2.3 - especificar possíveis exclusões de aulas (e.g. exclusao = "Estágios") e, se o caso, alterar excluir = True;
+2.3 - especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
 
 3 - Rodar o código.
@@ -67,7 +67,7 @@ Em seguida, a IDE vai printar a relação de salas e horas para a semana, com o 
 
 # Considerações
 
-Como eu fiz o código inicialmente para uso próprio, o título é recortado do texto inicial do arquivo PDF a partir de uma indexação específica ( i.e. titulo_rasc = paginas[0].extract_text()[190:254] ), ou seja, se o título for recortado errado para você, mude o número inicial do recorte. O final do título é recortado pela identificação do turno, visto que normalmente consta nos textos iniciais dos documentos algo na forma de "Ciências Sociais GRAD Turno: MANHÃ"; se não for o seu caso, sugiro modificar a função "extrair_título", na seção Título da função principal.
+Como eu fiz o código inicialmente para uso próprio, o título é recortado do texto inicial do arquivo PDF a partir de uma indexação específica ( i.e. a função extrair_titulo recorta o título logo após a palavra "Curso:"), ou seja, se o título não for recortado para você, mude o critério para recorte. O final do título é recortado pela identificação do turno, visto que normalmente consta nos textos iniciais dos documentos algo na forma de "Ciências Sociais GRAD Turno: MANHÃ"; se não for o seu caso, sugiro modificar a função "extrair_título", na seção Título da função principal.
 
 Além disso, se os turnos de sua universidade forem escritos de forma diferente e não forem reconhecidos, o título não será printado. Se isso ocorrer, adicione os turnos como constam em seus PDFs no dicionário "turnos", e deve funcionar normalmente.
 
