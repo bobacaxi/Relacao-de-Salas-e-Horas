@@ -9,11 +9,12 @@ Fiz esses código às pressas, então certamente não são os mais eficientes. E
 
 
 # relacao_dia_curso.py
-Se você tem exatamente 1 (um) PDF com tabelas que especificam os dias, salas e horas de cada aula salvo, e quer a relação para um dia da semana em específico:
+Se você tem exatamente 1 (um) PDF com tabelas que especificam os dias, salas e horas de cada aula salvo, e quer a relação para um dia da semana em específico: 
+<br/>
 
-1 - Abra o arquivo relacao_dia_curso.py para edição;
+1. Abra o arquivo relacao_dia_curso.py para edição;
 
-2 - Na seção "Configurações" do código:
+2. Na seção "Configurações" do código:
 
 * especificar o dia das aulas para relação;
 
@@ -21,17 +22,20 @@ Se você tem exatamente 1 (um) PDF com tabelas que especificam os dias, salas e 
 
 * especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 
-3 - Rodar o código.
+3. Rodar o código.
 
+
+<br/>
 Em seguida, a IDE vai printar a relação de salas e horas para o dia especificado, com o título (curso e turno) acima.
 
 
 # relacao_dia.py
 Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e horas de cada aula salvo, e quer a relação para um dia da semana em específico:
+<br/>
 
-1 - Abra o arquivo relacao_dia.py para edição;
+1. Abra o arquivo relacao_dia.py para edição;
 
-2 - Na seção "Configurações" do código:
+2. Na seção "Configurações" do código:
 
 * especificar o dia das aulas para relação;
 
@@ -42,17 +46,19 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 * especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
 
-3 - Rodar o código.
+3. Rodar o código.
 
+<br/>
 Em seguida, a IDE vai printar a relação de salas e horas para o dia especificado, com o título (curso e turno) de cada PDF acima.
 
 
 # relacao_semana.py
 Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e horas de cada aula salvo, e quer a relação para todos os dias da semana:
+<br/>
 
-1 - Abra o arquivo relacao_semana.py para edição;
+1. Abra o arquivo relacao_semana.py para edição;
 
-2 - Na seção "Configurações" do código:
+2. Na seção "Configurações" do código:
 
 * especificar o caminho da pasta dos arquivos PDF com as tabelas, nomeados numericamente de 01-X (e.g. "07.pdf");
 
@@ -61,8 +67,9 @@ Se você tem mais de 1 (um) PDF com tabelas que especificam os dias, salas e hor
 * especificar possíveis exclusões de aulas (e.g. exclusoes = ["Estágios", "Laboratório"] ) e, se o caso, alterar excluir = True;
 (é possível excluir aulas de somente alguns PDFs especificando no loop, como eu deixei pronto)
 
-3 - Rodar o código.
+3. Rodar o código.
 
+<br/>
 Em seguida, a IDE vai printar a relação de salas e horas para a semana, com o título (curso e turno) de cada PDF acima, começando da segunda e terminando na sexta. Se você quer printar os sábados também, adicionar sábado ao dicionário e alterar a range da variável "k" para 7 no loop.
 
 # Considerações
