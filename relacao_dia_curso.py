@@ -10,11 +10,12 @@ caminho = "/path/to/file.pdf"
 
 exclusoes = [
     'NÚCLEO',
+    'ESTÁGIOS',
     'LANATO',
     'LEXP'
 ]
 
-excluir = True
+excluir = False
 
 #endregion
 
@@ -36,7 +37,7 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         paginas = pdf.pages
 
         # extrair curso e turno com outros resquícios do PDF
-        titulo_rasc = paginas[0].extract_text()[170:254]
+        titulo_rasc = paginas[0].extract_text()[170:270]
 
         # verificar quebras de linha no texto
         def verificar_quebras(exemplo):
@@ -144,7 +145,6 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         salas_horas_comp = [item for sublist in relacao for item in sublist]
 
         #region Ordenar a Relação de Salas-Horas
-        # ordenar pelo horário de início e nome da sala
         # separar as horas e formatar em datetime
         def lista_tempo(lista):
             salas_horas_ini_fim = []
@@ -165,9 +165,24 @@ def relacao_salas_horas(caminho_para_pdf, dia_da_relacao):
         def ordenar_key(item):
             room = item[0]
             time = item[1][0]
-            match = re.search(r'\d+', room)
-            numeric_part = int(match.group()) if match else 0
-            return (time, numeric_part)
+
+
+            # Check if room starts with a numeric part (allowing suffixes like "100-A" or "223A")
+            numeric_match = re.match(r'^(\d+)[A-Za-z-]*$', room)  # [[3]][[5]]
+            if numeric_match:
+                numero_sala = int(numeric_match.group(1))
+                return (0, 0, numero_sala, 0, time)  # (is_pure, prefixo_ord, numero_sala, suffix_order, time)
+            else:
+                # Handle lettered rooms (e.g., "P70", "S26A")
+                letra_sala = re.match(r'^([A-Za-z]+)(\d+)([A-Za-z]*)$', room)
+                if letra_sala:
+                    prefixo = letra_sala.group(1).upper()
+                    numero_sala = int(letra_sala.group(2))
+                    prefixo_ord = {'P': 1, 'S': 2, 'T': 3}.get(prefixo, 999)
+                    return (1, prefixo_ord, numero_sala, 0, time)
+                else:
+                    # Fallback for invalid formats (sorted last)
+                    return (2, 0, 0, 0, time)
 
         salas_horas_ordenadas = sorted(lista_tempo(salas_horas_comp), key=ordenar_key)
 
