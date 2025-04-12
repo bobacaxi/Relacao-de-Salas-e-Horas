@@ -1,9 +1,9 @@
 # Relações de Salas-Horas a partir de PDFs
 Esse repositório é uma tentativa de automatizar o trabalho de produzir a relação de dias, salas e horas em que há aulas, posto que há um PDF da universidade com uma tabela de dias, aulas, salas e horários disponível.
 
-O principal instrumento utilizado (além do python) é o PIP *pdfplumber*, especificamente seu método de extração de tabelas de PDFs. Sua documentação está disponível em https://pypi.org/project/pdfplumber/, caso queira modificar os códigos para uso específico. Também é utilizado o módulo *RE* nativo do python para separação de padrões de texto, e o módulo *datetime*, também nativo, para comparação direta entre horários.
+O principal instrumento utilizado (além do python) é o PIP **pdfplumber**, especificamente seu método de extração de tabelas de PDFs. Sua documentação está disponível em https://pypi.org/project/pdfplumber/, caso queira modificar os códigos para uso específico. Também é utilizado o módulo **RE** nativo do python para separação de padrões de texto, e o módulo **datetime**, também nativo, para comparação direta entre horários.
 
-Tenha certeza de instalar o PIP *pdfplumber* na sua IDE ou terminal antes de rodar os códigos.
+Tenha certeza de instalar o PIP **pdfplumber** na sua IDE ou terminal antes de rodar os códigos.
 
 Fiz esses código às pressas, então certamente não são os mais eficientes. Em algum momento pretendo utilizar as classes do python para redigí-los melhor, mas, por enquanto, como estão funcionam bem para uso cotidiano.
 
